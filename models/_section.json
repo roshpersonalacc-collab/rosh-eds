@@ -51,7 +51,8 @@
         "cards",
         "teaser"
         "columns",
-        "fragment"
+        "fragment",
+        "quote"
       ]
     }
   ]
