@@ -33,7 +33,7 @@
   ],
   "models": [
     {
-      "id": "flipingCards",
+      "id": "flipingCard",
       "fields": [
         {
           "component": "reference",
@@ -55,7 +55,7 @@
   "filters": [
     {
       "id": "flipingCards",
-      "components": ["flipingCards"]
+      "components": ["flipingCard"]
     }
   ]
 }
