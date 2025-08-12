@@ -180,7 +180,7 @@
     ]
   },
   {
-    "id": "flipingCards",
+    "id": "flipingcard",
     "fields": [
       {
         "component": "reference",

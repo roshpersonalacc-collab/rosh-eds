@@ -14,10 +14,12 @@
       "title",
       "hero",
       "cards",
+      "teaser",
       "columns",
       "fragment",
       "quote",
-      "teaser"
+      "teaser",
+      "flipingCards"
     ]
   },
   {
@@ -42,9 +44,9 @@
     ]
   },
   {
-    "id": "flipingCards",
+    "id": "flipingcards",
     "components": [
-      "flipingCards"
+      "card"
     ]
   }
 ]
