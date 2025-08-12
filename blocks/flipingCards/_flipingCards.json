@@ -52,10 +52,5 @@
       ]
     }
   ],
-  "filters": [
-    {
-      "id": "flipingCards",
-      "components": ["flipingCards"]
-    }
-  ]
+  "filters": []
 }
