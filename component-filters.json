@@ -15,7 +15,9 @@
       "hero",
       "cards",
       "columns",
-      "fragment"
+      "fragment",
+      "quote",
+      "teaser"
     ]
   },
   {
@@ -37,6 +39,12 @@
       "image",
       "button",
       "title"
+    ]
+  },
+  {
+    "id": "flipingCards",
+    "components": [
+      "flipingCards"
     ]
   }
 ]

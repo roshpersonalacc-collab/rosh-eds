@@ -49,10 +49,10 @@
         "title",
         "hero",
         "cards",
+        "teaser"
         "columns",
         "fragment",
-        "quote",
-        "teaser"
+        "quote"
       ]
     }
   ]
