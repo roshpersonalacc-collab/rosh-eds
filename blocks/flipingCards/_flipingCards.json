@@ -56,7 +56,7 @@
     {
       "id": "flipingcards",
       "components": [
-        "card"
+        "flipingcard"
       ]
     }
   ]
