@@ -128,7 +128,7 @@
           }
         },
         {
-          "title": "flipingCards",
+          "title": "FlipingCards",
           "id": "flipingCards",
           "plugins": {
             "xwalk": {
@@ -150,8 +150,8 @@
               "page": {
                 "resourceType": "core/franklin/components/block/v1/block/item",
                 "template": {
-                  "name": "flipingCards",
-                  "model": "flipingCards"
+                  "name": "flipingCard",
+                  "model": "flipingCard"
                 }
               }
             }
