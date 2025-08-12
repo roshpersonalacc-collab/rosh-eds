@@ -16,7 +16,7 @@
       }
     },
     {
-      "title": "flipingCards",
+      "title": "FlipingCards",
       "id": "flipingCards",
       "plugins": {
         "xwalk": {
