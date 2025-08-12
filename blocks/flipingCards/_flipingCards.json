@@ -16,14 +16,14 @@
       }
     },
     {
-      "title": "FlipingCards",
+      "title": "flipingCards",
       "id": "flipingCards",
       "plugins": {
         "xwalk": {
           "page": {
             "resourceType": "core/franklin/components/block/v1/block/item",
             "template": {
-              "name": "flipingCards",
+              "name": "FlipingCards",
               "model": "flipingCards"
             }
           }
@@ -52,5 +52,10 @@
       ]
     }
   ],
-  "filters": []
+  "filters": [
+    {
+      "id": "flipingCards",
+      "components": ["flipingCards"]
+    }
+  ]
 }
