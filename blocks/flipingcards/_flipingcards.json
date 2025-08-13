@@ -1,30 +1,15 @@
 {
   "definitions": [
     {
-      "title": "FlipingCards",
+      "title": "Flipingcards",
       "id": "flipingcards",
       "plugins": {
         "xwalk": {
           "page": {
             "resourceType": "core/franklin/components/block/v1/block",
             "template": {
-              "name": "FlipingCards",
-              "filter": "flipingcards"
-            }
-          }
-        }
-      }
-    },
-    {
-      "title": "FlipingCard",
-      "id": "flipingcard",
-      "plugins": {
-        "xwalk": {
-          "page": {
-            "resourceType": "core/franklin/components/block/v1/block/item",
-            "template": {
-              "name": "FlipingCard",
-              "model": "flipingcard"
+              "name": "Flipingcards",
+              "model": "flipingcards"
             }
           }
         }
@@ -33,7 +18,7 @@
   ],
   "models": [
     {
-      "id": "flipingcard",
+      "id": "flipingcards",
       "fields": [
         {
           "component": "reference",
@@ -41,6 +26,13 @@
           "name": "image",
           "label": "Image",
           "multi": false
+        },
+        {
+          "component": "text",
+          "valueType": "string",
+          "name": "imageAlt",
+          "label": "Alt",
+          "value": ""
         },
         {
           "component": "richtext",
@@ -52,12 +44,5 @@
       ]
     }
   ],
-  "filters": [
-    {
-      "id": "flipingcards",
-      "components": [
-        "flipingcard"
-      ]
-    }
-  ]
+  "filters": []
 }
