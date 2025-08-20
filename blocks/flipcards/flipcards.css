@@ -55,8 +55,18 @@
 
 /* Icon style */
 .flip-card-front .icon {
-  font-size: 2rem;
   margin-bottom: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.flip-card-front .icon picture img {
+  width: 75px;
+  height: 126px;
+  aspect-ratio: 25 / 42;
+  object-fit: contain;
+  display: block;
 }
 
 /* Text styles */
@@ -102,4 +112,16 @@
 
 .flip-card-back li {
   margin-bottom: 0.5rem;
+}
+
+/* Prevent global/static title from adopting card styles */
+.block .static-title,
+.block h2,
+.block h3 {
+  all: unset;
+  font-size: 1.75rem;
+  font-weight: 500;
+  color: #144633;
+  margin: 0 0 1rem;
+  font-family: "Roboto", sans-serif;
 }
