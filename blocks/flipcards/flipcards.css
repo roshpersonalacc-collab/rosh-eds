@@ -10,6 +10,22 @@
   margin: 1rem auto;
 }
 
+/* Grid layout for wrapper and list */
+.flipcards-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.flipcard-list {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+  padding: 0;
+  margin: 0;
+}
+
 /* Inner container */
 .flip-card-inner {
   position: relative;
@@ -124,4 +140,11 @@
   color: #144633;
   margin: 0 0 1rem;
   font-family: "Roboto", sans-serif;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .flipcard-list {
+    grid-template-columns: 1fr;
+  }
 }
