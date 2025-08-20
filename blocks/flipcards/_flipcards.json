@@ -76,7 +76,7 @@
         },
         {
           "component": "richtext",
-          "name": "text",
+          "name": "fliptext",
           "value": "",
           "label": "Content",
           "valueType": "string"
