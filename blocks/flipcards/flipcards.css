@@ -9,13 +9,50 @@
   outline: none;
   margin: 1rem auto;
 }
-.flipcard-title {
-  font-size: 1.5rem;
-  color: #144633;
-  font-family: 'HelveticaNeueW01-55Roma', sans-serif;
-  margin-bottom: 1.5rem;
-  line-height: 1.4;
+.flipcards-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: flex-start;
 }
+
+@media (min-width: 768px) {
+  .flipcards-wrapper {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+}
+
+.flipcards-title {
+  font-size: 1.5rem;
+  font-family: "HelveticaNeueW01-55Roma", sans-serif;
+  color: #144633;
+  max-width: 250px;
+  flex-shrink: 0;
+}
+
+@media (min-width: 992px) {
+  .flipcards-title {
+    font-size: 1.75rem;
+  }
+}
+
+.flipcard-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding: 0;
+  margin: 0;
+}
+
+@media (min-width: 768px) {
+  .flipcard-list {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+}
+
 
 /* Inner container */
 .flip-card-inner {

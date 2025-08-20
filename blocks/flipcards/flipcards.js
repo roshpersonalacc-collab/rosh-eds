@@ -1,39 +1,41 @@
 /* eslint-disable linebreak-style */
+// eslint-disable-next-line linebreak-style, no-unused-vars
+import { createOptimizedPicture } from '../../scripts/aem.js';
 import { moveInstrumentation } from '../../scripts/scripts.js';
 
 export default function decorate(block) {
+  const wrapper = document.createElement('div');
+  wrapper.classList.add('flipcards-wrapper');
+
   const ul = document.createElement('ul');
   ul.classList.add('flipcard-list');
 
   [...block.children].forEach((row) => {
     const cells = [...row.children];
 
-    // TITLE: If there's only 1 column, treat as static title block
+    // TITLE: Single cell = heading text
     if (cells.length === 1) {
-      const titleWrapper = document.createElement('div');
-      titleWrapper.classList.add('flipcard-title');
-      titleWrapper.innerHTML = cells[0].innerHTML;
-      block.append(titleWrapper);
+      const titleDiv = document.createElement('div');
+      titleDiv.className = 'flipcards-title';
+      titleDiv.innerHTML = cells[0].innerHTML;
+      wrapper.append(titleDiv);
       return;
     }
 
-    // FLIP CARD: Requires exactly 3 cells
+    // FLIP CARD: Should be 3 cells
     if (cells.length === 3) {
       const li = document.createElement('li');
       li.classList.add('flip-card');
       li.setAttribute('tabindex', '0');
-      moveInstrumentation(row, li);
 
+      moveInstrumentation(row, li);
       const flipInner = document.createElement('div');
       flipInner.className = 'flip-card-inner';
 
-      // Cells: icon | front content | back content
       const [iconCell, frontTextCell, backTextCell] = cells;
 
-      /* FRONT */
       const front = document.createElement('div');
       front.className = 'flip-card-front';
-
       const icon = document.createElement('div');
       icon.className = 'icon';
       icon.innerHTML = iconCell?.innerHTML || '👤';
@@ -44,10 +46,8 @@ export default function decorate(block) {
         ${frontTextCell?.innerHTML || ''}
         <span class="flip-trigger">Click to flip card for more information 🔄</span>
       `;
-
       front.append(icon, frontText);
 
-      /* BACK */
       const back = document.createElement('div');
       back.className = 'flip-card-back';
       back.innerHTML = `
@@ -61,14 +61,13 @@ export default function decorate(block) {
     }
   });
 
-  // Clear original block and add processed items
+  wrapper.append(ul);
   block.textContent = '';
-  block.append(ul);
+  block.append(wrapper);
 
-  // FLIP LOGIC
+  // Flip logic
   ul.querySelectorAll('.flip-card').forEach((card) => {
     const triggers = card.querySelectorAll('.flip-trigger');
-
     triggers.forEach((trigger) => {
       trigger.addEventListener('click', () => {
         card.classList.toggle('flipped');
