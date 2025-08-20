@@ -28,7 +28,7 @@ export default function decorate(block) {
 
     const icon = document.createElement('div');
     icon.className = 'icon';
-    icon.innerHTML = iconCell?.innerHTML || '👤';
+    icon.innerHTML = iconCell?.innerHTML || '';
 
     const frontText = document.createElement('div');
     frontText.className = 'text';
