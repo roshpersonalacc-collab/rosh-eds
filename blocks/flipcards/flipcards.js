@@ -6,56 +6,66 @@ export default function decorate(block) {
   ul.classList.add('flipcard-list');
 
   [...block.children].forEach((row) => {
-    const li = document.createElement('li');
-    li.classList.add('flip-card');
-    li.setAttribute('tabindex', '0');
+    const cells = [...row.children];
 
-    moveInstrumentation(row, li);
+    // TITLE: If there's only 1 column, treat as static title block
+    if (cells.length === 1) {
+      const titleWrapper = document.createElement('div');
+      titleWrapper.classList.add('flipcard-title');
+      titleWrapper.innerHTML = cells[0].innerHTML;
+      block.append(titleWrapper);
+      return;
+    }
 
-    const flipInner = document.createElement('div');
-    flipInner.className = 'flip-card-inner';
+    // FLIP CARD: Requires exactly 3 cells
+    if (cells.length === 3) {
+      const li = document.createElement('li');
+      li.classList.add('flip-card');
+      li.setAttribute('tabindex', '0');
+      moveInstrumentation(row, li);
 
-    // Cells from the CMS block
-    const iconCell = row.children[0]; // Emoji or image/icon
-    const frontTextCell = row.children[1]; // Front title and subtitle
-    const backTextCell = row.children[2]; // Back content
+      const flipInner = document.createElement('div');
+      flipInner.className = 'flip-card-inner';
 
-    /* === FRONT SIDE === */
-    const front = document.createElement('div');
-    front.className = 'flip-card-front';
+      // Cells: icon | front content | back content
+      const [iconCell, frontTextCell, backTextCell] = cells;
 
-    const icon = document.createElement('div');
-    icon.className = 'icon';
-    icon.innerHTML = iconCell?.innerHTML || '👤';
+      /* FRONT */
+      const front = document.createElement('div');
+      front.className = 'flip-card-front';
 
-    const frontText = document.createElement('div');
-    frontText.className = 'text';
-    frontText.innerHTML = `
-      ${frontTextCell?.innerHTML || ''}
-      <span class="flip-trigger">Click to flip card for more information 🔄</span>
-    `;
+      const icon = document.createElement('div');
+      icon.className = 'icon';
+      icon.innerHTML = iconCell?.innerHTML || '👤';
 
-    front.append(icon, frontText);
+      const frontText = document.createElement('div');
+      frontText.className = 'text';
+      frontText.innerHTML = `
+        ${frontTextCell?.innerHTML || ''}
+        <span class="flip-trigger">Click to flip card for more information 🔄</span>
+      `;
 
-    /* === BACK SIDE === */
-    const back = document.createElement('div');
-    back.className = 'flip-card-back';
+      front.append(icon, frontText);
 
-    back.innerHTML = `
-      ${backTextCell?.innerHTML || ''}
-      <span class="flip-trigger">🔄</span>
-    `;
+      /* BACK */
+      const back = document.createElement('div');
+      back.className = 'flip-card-back';
+      back.innerHTML = `
+        ${backTextCell?.innerHTML || ''}
+        <span class="flip-trigger">🔄</span>
+      `;
 
-    // Assemble the card
-    flipInner.append(front, back);
-    li.append(flipInner);
-    ul.append(li);
+      flipInner.append(front, back);
+      li.append(flipInner);
+      ul.append(li);
+    }
   });
 
+  // Clear original block and add processed items
   block.textContent = '';
   block.append(ul);
 
-  // === Flip interaction (click + keyboard) ===
+  // FLIP LOGIC
   ul.querySelectorAll('.flip-card').forEach((card) => {
     const triggers = card.querySelectorAll('.flip-trigger');
 
