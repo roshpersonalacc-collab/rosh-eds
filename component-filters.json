@@ -51,9 +51,9 @@
     ]
   },
   {
-    "id": "cards",
+    "id": "flipablecard",
     "components": [
-      "card"
+      "flipablecard"
     ]
   }
 ]
