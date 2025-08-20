@@ -180,6 +180,44 @@
     ]
   },
   {
+    "id": "title",
+    "fields": [
+      {
+        "component": "richtext",
+        "name": "text",
+        "value": "",
+        "label": "Card Title",
+        "valueType": "string"
+      }
+    ]
+  },
+  {
+    "id": "flipablecard",
+    "fields": [
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "image",
+        "label": "Image",
+        "multi": false
+      },
+      {
+        "component": "richtext",
+        "name": "text",
+        "value": "",
+        "label": "Card Title",
+        "valueType": "string"
+      },
+      {
+        "component": "richtext",
+        "name": "text",
+        "value": "",
+        "label": "Content",
+        "valueType": "string"
+      }
+    ]
+  },
+  {
     "id": "flipingcards",
     "fields": [
       {

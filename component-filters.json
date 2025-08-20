@@ -43,5 +43,17 @@
       "button",
       "title"
     ]
+  },
+  {
+    "id": "title",
+    "components": [
+      "title"
+    ]
+  },
+  {
+    "id": "cards",
+    "components": [
+      "card"
+    ]
   }
 ]
