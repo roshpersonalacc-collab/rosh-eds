@@ -1,4 +1,6 @@
 /* eslint-disable linebreak-style */
+/* eslint-disable operator-linebreak */
+/* eslint-disable linebreak-style */
 import { createOptimizedPicture } from '../../scripts/aem.js';
 import { moveInstrumentation } from '../../scripts/scripts.js';
 
