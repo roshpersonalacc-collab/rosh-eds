@@ -103,8 +103,8 @@
 .flip-card-back li {
   margin-bottom: 0.5rem;
 }
-@media (min-width: 992px) {
-  .flip-card-front .icon img {
+
+.flip-card-front .icon img {
     width: 75px;
     height: 126px;
     object-fit: contain;
@@ -112,4 +112,3 @@
     display: block;
     margin-bottom: 1rem;
   }
-}
