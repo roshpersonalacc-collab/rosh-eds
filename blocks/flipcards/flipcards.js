@@ -1,5 +1,4 @@
 /* eslint-disable linebreak-style */
-import { createOptimizedPicture } from '../../scripts/aem.js';
 import { moveInstrumentation } from '../../scripts/scripts.js';
 
 export default function decorate(block) {
@@ -8,73 +7,69 @@ export default function decorate(block) {
 
   [...block.children].forEach((row) => {
     const li = document.createElement('li');
-    li.classList.add('paragraph__card--type-j');
+    li.classList.add('flip-card');
+    li.setAttribute('tabindex', '0');
 
     moveInstrumentation(row, li);
 
-    const frontImageCell = row.children[0];
-    const frontTextCell = row.children[1];
-    const backTextCell = row.children[2];
+    const flipInner = document.createElement('div');
+    flipInner.className = 'flip-card-inner';
 
-    // Create card container
-    const cardContent = document.createElement('div');
-    cardContent.className = 'paragraph__card-content';
+    // Cells from the CMS block
+    const iconCell = row.children[0]; // Emoji or image/icon
+    const frontTextCell = row.children[1]; // Front title and subtitle
+    const backTextCell = row.children[2]; // Back content
 
-    // === FRONT SIDE ===
-    const frontSide = document.createElement('div');
-    frontSide.className = 'paragraph__card-content--front-side';
+    /* === FRONT SIDE === */
+    const front = document.createElement('div');
+    front.className = 'flip-card-front';
 
-    const frontImgEl = frontImageCell.querySelector('img');
-    if (frontImgEl) {
-      const optimizedPic = createOptimizedPicture(frontImgEl.src, frontImgEl.alt, false, [
-        { width: '750' },
-      ]);
-      const imgWrapper = document.createElement('div');
-      imgWrapper.className = 'paragraph__image';
-      moveInstrumentation(frontImgEl, optimizedPic.querySelector('img'));
-      imgWrapper.append(optimizedPic);
-      frontSide.append(imgWrapper);
-    }
+    const icon = document.createElement('div');
+    icon.className = 'icon';
+    icon.innerHTML = iconCell?.innerHTML || '👤';
 
     const frontText = document.createElement('div');
-    frontText.innerHTML = frontTextCell.innerHTML;
-    frontSide.append(frontText);
-
-    const frontFooter = document.createElement('div');
-    frontFooter.className = 'paragraph__card-content--front-side-footer';
-    frontFooter.innerHTML = `
-      <p>Click to flip card for more information</p>
-      <button class="flip-button" aria-label="Flip card"></button>
+    frontText.className = 'text';
+    frontText.innerHTML = `
+      ${frontTextCell?.innerHTML || ''}
+      <span class="flip-trigger">Click to flip card for more information 🔄</span>
     `;
-    frontSide.append(frontFooter);
 
-    // === BACK SIDE ===
-    const backSide = document.createElement('div');
-    backSide.className = 'paragraph__card-content--back-side';
+    front.append(icon, frontText);
 
-    const backContent = document.createElement('div');
-    backContent.innerHTML = backTextCell.innerHTML;
-    backSide.append(backContent);
+    /* === BACK SIDE === */
+    const back = document.createElement('div');
+    back.className = 'flip-card-back';
 
-    const backButton = document.createElement('button');
-    backButton.className = 'flip-button back';
-    backButton.setAttribute('aria-label', 'Flip back');
-    backSide.append(backButton);
+    back.innerHTML = `
+      ${backTextCell?.innerHTML || ''}
+      <span class="flip-trigger">🔄</span>
+    `;
 
-    // Append both sides to card
-    cardContent.append(frontSide, backSide);
-    li.append(cardContent);
+    // Assemble the card
+    flipInner.append(front, back);
+    li.append(flipInner);
     ul.append(li);
   });
 
   block.textContent = '';
   block.append(ul);
 
-  // === FLIP FUNCTIONALITY ===
-  ul.querySelectorAll('.flip-button').forEach((btn) => {
-    btn.addEventListener('click', (e) => {
-      const card = e.target.closest('.paragraph__card--type-j');
-      card.classList.toggle('flip');
+  // === Flip interaction (click + keyboard) ===
+  ul.querySelectorAll('.flip-card').forEach((card) => {
+    const triggers = card.querySelectorAll('.flip-trigger');
+
+    triggers.forEach((trigger) => {
+      trigger.addEventListener('click', () => {
+        card.classList.toggle('flipped');
+      });
+    });
+
+    card.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        card.classList.toggle('flipped');
+      }
     });
   });
 }
