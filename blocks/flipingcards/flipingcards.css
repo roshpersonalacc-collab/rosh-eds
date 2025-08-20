@@ -1,4 +1,3 @@
-/* Base Styles */
 .flip-card {
   background-color: transparent;
   width: 100%;
@@ -53,10 +52,26 @@
   transform: rotateY(180deg);
 }
 
-/* Icon style */
+/* Icon container */
 .flip-card-front .icon {
-  font-size: 2rem;
   margin-bottom: 1rem;
+}
+
+/* Desktop-specific image size for icon inside picture */
+@media (min-width: 992px) {
+  .flip-card-front .icon {
+    width: 75px;
+    height: 126px;
+  }
+
+  .flip-card-front .icon picture,
+  .flip-card-front .icon img {
+    width: 100%;
+    height: 100%;
+    aspect-ratio: 25 / 42;
+    object-fit: contain;
+    display: block;
+  }
 }
 
 /* Text styles */
@@ -84,10 +99,6 @@
   gap: 0.25rem;
 }
 
-.flip-trigger:hover {
-  text-decoration: underline;
-}
-
 /* Back content */
 .flip-card-back p {
   font-weight: bold;
@@ -102,22 +113,4 @@
 
 .flip-card-back li {
   margin-bottom: 0.5rem;
-}
-
-/* Set icon image size for desktop view */
-@media (min-width: 992px) {
-  .flip-card-front .icon {
-    width: 75px;
-    height: 126px;
-    margin-bottom: 1rem; /* adjust spacing below if needed */
-  }
-
-  .flip-card-front .icon picture,
-  .flip-card-front .icon img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    aspect-ratio: 25 / 42;
-    display: block;
-  }
 }
