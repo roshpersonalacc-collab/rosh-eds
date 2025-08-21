@@ -10,23 +10,16 @@
   margin: 1rem auto;
 }
 
-/* Grid layout for wrapper and list */
-.flipcards-wrapper {
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-}
-
-.flipcard-list {
-  list-style: none;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 2rem;
-  padding: 0;
-  margin: 0;
-}
-
 /* Inner container */
+.flipcards-title{
+  font-size: 1.25rem;
+    line-height: 1.3;
+    letter-spacing: .2px;
+    font-weight: 400;
+    color: #144633;
+    font-family: "HelveticaNeueW01-55Roma",sans-serif;
+    margin-bottom: 1.5rem
+}
 .flip-card-inner {
   position: relative;
   width: 100%;
@@ -135,18 +128,9 @@
 .block h2,
 .block h3 {
   all: unset;
-  font-size: 1.25rem;
-  line-height: 1.3;
-  letter-spacing: .2px;
-  font-weight: 400;
+  font-size: 1.75rem;
+  font-weight: 500;
   color: #144633;
-  margin-bottom: 1.5rem;
-  font-family: "HelveticaNeueW01-55Roma", sans-serif;
-}
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-  .flipcard-list {
-    grid-template-columns: 1fr;
-  }
+  margin: 0 0 1rem;
+  font-family: "Roboto", sans-serif;
 }
