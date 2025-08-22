@@ -59,7 +59,7 @@ position: absolute;
   color: #144633;
   font-family: "Roboto Flex", sans-serif;
   padding: 1rem;
-
+}
 /* Front card */
 .flip-card-front {
   z-index: 2;
