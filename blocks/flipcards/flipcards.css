@@ -5,26 +5,37 @@
   margin: 0 auto;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 32px;
+  gap: 70px;
   max-width: 960px;
+}
+.flipcards-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 32px;
+  padding: 42px;
 }
 
 /* Flip card base */
 .flip-card {
   background-color: transparent;
-  width: 100%;
-  height: 400px;
+  width: 303px;
+  height: 320px;
   perspective: 1000px;
-  outline: none;
+  border-radius: 24px;
+  padding: 42px;
+  box-sizing: border-box;
+  position: relative;
 }
 
 /* Inner container for flip effect */
 .flip-card-inner {
-  position: relative;
+ position: relative;
   width: 100%;
   height: 100%;
-  transition: transform 0.8s ease-in-out;
+  transition: transform 1s;
   transform-style: preserve-3d;
+  border-radius: 24px;
 }
 
 /* Flip action */
@@ -35,19 +46,19 @@
 /* Common side styles */
 .flip-card-front,
 .flip-card-back {
-  position: absolute;
+position: absolute;
   width: 100%;
   height: 100%;
   backface-visibility: hidden;
-  border-radius: 12px;
-  padding: 1.5rem;
-  background: #f3f4e6;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  background: #e1e8a5;
+  border-radius: 24px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
   color: #144633;
-}
+  font-family: "Roboto Flex", sans-serif;
+  padding: 1rem;
 
 /* Front card */
 .flip-card-front {
