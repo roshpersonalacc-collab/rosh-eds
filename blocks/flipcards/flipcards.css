@@ -70,8 +70,7 @@
 .flip-card-back {
   transform: rotateY(180deg);
   position: absolute;
-  right: 24px;
-  bottom: 24px;
+  
 }
 
 /* Icon */
