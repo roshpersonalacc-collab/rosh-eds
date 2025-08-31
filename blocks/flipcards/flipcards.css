@@ -52,7 +52,7 @@
   backface-visibility: hidden;
   background: #e1e8a5;
   border-radius: 24px;
-  display: flex;
+  display: inline-flex;
   flex-direction: column;
   justify-content: space-between;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
