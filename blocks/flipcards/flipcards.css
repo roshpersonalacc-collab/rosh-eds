@@ -59,6 +59,7 @@
   color: #144633;
   font-family: 'Roboto Flex', sans-serif;
   padding: 42px;
+  max-width: 387px;
 }
 /* Front card */
 .flip-card-front {
