@@ -64,6 +64,8 @@
 /* Front card */
 .flip-card-front {
   z-index: 2;
+  transform: rotateY(0deg);
+
 }
 
 /* Back card */
