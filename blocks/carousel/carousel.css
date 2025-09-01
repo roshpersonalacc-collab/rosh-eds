@@ -1,0 +1,214 @@
+main > .section > div.carousel-wrapper {
+    max-width: none;
+    margin: auto;
+    padding: 0px;
+}
+
+.carousel-container {
+    display: flex;
+    overflow-x: auto;
+    justify-content: center;
+    white-space: nowrap;
+    width: 100%;
+    padding: 40px 0;
+    background-color: #DFE3E6;
+    scrollbar-width: none;
+}
+
+.carousel-wrapper {
+    width: 100%;
+    margin: 0px !important;
+    overflow: hidden; /* ✅ FIXED: prevent slick-track overflow */
+}
+
+.text-carousel.slick-initialized {
+    display: block
+}
+
+@media(min-width: 992px) {
+    .text-carousel {
+        padding-bottom:5.3125rem
+    }
+}
+
+.text-carousel .slide-wrapper {
+    height: 189px;
+}
+
+@media(min-width: 992px) {
+    .text-carousel .slide-wrapper {
+        width:500px;
+        height: 262px;
+        padding: 0 1.875rem
+    }
+}
+
+.text-carousel .slide-wrapper .slide {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-size: 1.125rem;
+    line-height: 1.6;
+    font-weight: 400;
+    color: #717171;
+    width: 80%;
+    height: 50%;
+    padding: 1.875rem;
+    border-radius: 36px;
+    box-shadow: 0 39px 75px rgba(0,0,0,.04);
+    background: #FFF;
+    transition: .3s
+}
+
+@media(min-width: 992px) {
+    .text-carousel .slide-wrapper .slide {
+        padding:2.5rem;
+        border-radius: 50px;
+        font-size: 1.5rem;
+        box-shadow: 0 54px 104px rgba(0,0,0,.04)
+    }
+}
+
+.text-carousel .slide-wrapper .slide p {
+    margin: 0
+}
+
+/* ✅ FIXED: prevent track overflow & maintain spacing */
+.text-carousel .slick-list {
+    overflow: hidden !important;
+    margin: 0 -15px;
+    padding: 0 15px !important;
+}
+
+/* ✅ FIXED: keep slides spaced with max-width at all zoom levels */
+.text-carousel .slick-slide {
+    padding: 0 15px;
+    box-sizing: border-box;
+    max-width: 100%;   /* keeps spacing visible */
+    margin: auto;
+}
+
+@media(min-width: 992px) {
+    .text-carousel .slick-slide {
+        padding: 0 20px;
+        max-width: 100%; /* narrower on desktop for better gaps */
+    }
+}
+
+.text-carousel .slick-slide.big {
+    width: 380px
+}
+
+.text-carousel .slick-slide.big .slide-wrapper .slide {
+    padding: 0.3125rem
+}
+
+@media(min-width: 992px) {
+    .text-carousel .slick-slide.big {
+        width:688px
+    }
+
+    .text-carousel .slick-slide.big .slide-wrapper .slide {
+        padding: 2.5rem
+    }
+}
+
+/* ✅ FIXED: arrows aligned vertically in center */
+.text-carousel .slick-arrow {
+    width: 50px;
+    height: 50px;
+    top: 90%;
+    transform: translateY(-50%);
+    z-index: 10;
+    border-radius: 50%;
+    background: #A7C8E8;
+    transition: .3s
+}
+
+.text-carousel .slick-arrow:focus {
+    background: #A7C8E8;
+}
+
+.text-carousel .slick-arrow:hover,
+.text-carousel .slick-arrow:focus:hover {
+    background: #4A6CB3;
+}
+
+.text-carousel .slick-arrow.slick-prev {
+    left: 20px
+}
+
+@media(min-width: 992px) {
+    .text-carousel .slick-arrow.slick-prev {
+        left:40px
+    }
+}
+
+.text-carousel .slick-arrow.slick-next {
+    right: 20px;
+    transform: translateY(-50%) rotate(180deg); /* ✅ FIXED: keep rotation with vertical centering */
+}
+
+@media(min-width: 992px) {
+    .text-carousel .slick-arrow.slick-next {
+        right:40px
+    }
+}
+
+.text-carousel .slick-arrow::before {
+    content: "<";
+    font-size: 1.5rem;
+    color: white;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* ✅ FIXED: dots aligned bottom-center consistently */
+.text-carousel .slick-dots {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.text-carousel .slick-dots li {
+    position: relative;
+    width: 12px;
+    height: 12px;
+    margin: 0
+}
+
+.text-carousel .slick-dots li button {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 0
+}
+
+.text-carousel .slick-dots li button::before {
+    content: "";
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #A7C8E8;
+}
+
+.text-carousel .slick-dots li button:hover::before {
+    background: #C8D0DA;
+}
+
+.text-carousel .slick-dots li.slick-active button::before {
+    background: #4A6CB3;
+}
+.text-carousel .slick-current .slide-wrapper .slide {
+    background: #4A6CB3;
+    color: #FFF;
+}

@@ -20,13 +20,20 @@
       "quote",
       "teaser",
       "flipingcards",
-      "flipcards"
+      "flipcards",
+      "carousel"
     ]
   },
   {
     "id": "cards",
     "components": [
       "card"
+    ]
+  },
+  {
+    "id": "carousel",
+    "components": [
+      "slide"
     ]
   },
   {

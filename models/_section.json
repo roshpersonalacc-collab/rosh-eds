@@ -55,7 +55,8 @@
         "quote",
         "teaser",
         "flipingcards",
-        "flipcards"
+        "flipcards",
+        "carousel"
       ]
     }
   ]
