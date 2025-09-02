@@ -29,7 +29,7 @@ export default function decorate(block) {
 
       const image = imageCell.querySelector('img');
       const picture = image
-        ? createOptimizedPicture(image.src, image.alt || '', false, [{ width: '150' }])
+        ? createOptimizedPicture(image.src, image.alt || '', false, [{ width: '250' }])
         : '';
       const icon = document.createElement('div');
       icon.className = 'icon';
