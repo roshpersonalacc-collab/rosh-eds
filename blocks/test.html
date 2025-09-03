@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=
+     initial-scale=1.0"
+    />
+    <title>Document</title>
+    <style>
+      .flipping-card {
+        display: flex;
+        background: white;
+        justify-content: center;
+        gap: 10px;
+      }
+      .flipping-card__container {
+        position: relative;
+        height: 300px;
+        width: 300px;
+        transform-style: preserve-3d;
+        transition: transform 1s;
+      }
+      .flipping-card__card {
+        border: 1px solid black;
+        position: absolute;
+        inset: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        backface-visibility: hidden;
+        border-radius: 5%;
+      }
+
+      .flipping-card__card--front {
+        background: #e1e8a5;
+      }
+
+      .flipping-card__card--back {
+        background: #e1e8a5;
+        transform: rotateY(180deg);
+      }
+
+      .flipping-card-container--flipped {
+        transform: rotateY(180deg);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="flipping-card">
+      <div class="flipping-card__container">
+        <div class="flipping-card__card flipping-card__card--front">
+          <div>Front Card</div>
+        </div>
+        <div class="flipping-card__card flipping-card__card--back">
+          <div>Back Card</div>
+        </div>
+      </div>
+      <div class="flipping-card__container">
+        <div class="flipping-card__card flipping-card__card--front">
+          <div>Front Card</div>
+        </div>
+        <div class="flipping-card__card flipping-card__card--back">
+          <div>Back Card</div>
+        </div>
+      </div>
+      <div class="flipping-card__container">
+        <div class="flipping-card__card flipping-card__card--front">
+          <div>
+            <img
+              loading="lazy"
+              src="https://www.rexulti.com/sites/g/files/qhldwo11906/files/2025-04/static.svg"
+              alt="Brain without agitation that may happen with dementia due to Alzheimer's disease icon"
+              typeof="foaf:Image"
+            />
+            <h3 class="h3">
+              <strong>The brain without agitation</strong>that may happen with dementia due to
+              Alzheimer's disease:
+            </h3>
+            <div>Click to flip card for more information
+            <button type="button" class="flip-button front" title="Flip the card" data-analytics-link="{&quot;name&quot;:&quot;Flip Button&quot;,&quot;position&quot;:&quot;body&quot;,&quot;group&quot;:&quot;content&quot;,&quot;href&quot;:&quot;n/a&quot;}" data-once="flipCard">
+                                                                            &nbsp;
+                                                                        </button></div>
+          </div>
+          <p></p>
+        </div>
+        <div class="flipping-card__card flipping-card__card--back">
+          <div>
+            Back Card
+            <div>Flip icon</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        document.querySelectorAll('.flipping-card__container').forEach((el) => {
+          el.addEventListener('click', function (e) {
+            e.target.parentElement.classList.toggle('flipping-card-container--flipped');
+          });
+        });
+      });
+    </script>
+  </body>
+</html>
