@@ -46,24 +46,19 @@ export default function decorate(block) {
       frontText.innerHTML = cells[1].innerHTML;
       frontContent.appendChild(frontText);
 
-      // FRONT Flip trigger (text + icon)
-      const frontTriggerWrapper = document.createElement('div');
-      frontTriggerWrapper.className = 'flip-trigger-wrapper';
+      // "Click to flip" text (non-clickable)
+      const flipText = document.createElement('span');
+      flipText.className = 'flip-text';
+      flipText.textContent = 'Click to flip';
 
-      const frontTriggerText = document.createElement('span');
-      frontTriggerText.className = 'flip-text';
-      frontTriggerText.textContent = 'Click to flip for more information';
+      // Flip button with static image (clickable only)
+      const frontTrigger = document.createElement('button');
+      frontTrigger.className = 'flip-trigger';
+      frontTrigger.setAttribute('type', 'button');
+      frontTrigger.setAttribute('aria-label', 'Click to flip for more information');
+      frontTrigger.innerHTML = '<img src="/content/dam/your-project/flip-icon.svg" alt="Flip icon" width="20" height="20">';
 
-      const frontTriggerBtn = document.createElement('button');
-      frontTriggerBtn.className = 'flip-trigger';
-      frontTriggerBtn.setAttribute('type', 'button');
-      frontTriggerBtn.setAttribute('aria-label', 'Flip card');
-      frontTriggerBtn.innerHTML = `
-        <img src="https://author-p135369-e1615158.adobeaemcloud.com/ui#/aem/assetdetails.html/content/dam/your-project/flip-icon.svg" alt="Flip icon">
-      `;
-
-      frontTriggerWrapper.append(frontTriggerText, frontTriggerBtn);
-      front.append(frontContent, frontTriggerWrapper);
+      front.append(frontContent, flipText, frontTrigger);
 
       // BACK SIDE
       const back = document.createElement('div');
@@ -77,35 +72,29 @@ export default function decorate(block) {
       backText.innerHTML = cells[2].innerHTML;
       backContent.appendChild(backText);
 
-      // BACK flip trigger (icon only, right-aligned)
-      const backTriggerWrapper = document.createElement('div');
-      backTriggerWrapper.className = 'flip-trigger-wrapper';
+      // Back flip button, right aligned
+      const backTrigger = document.createElement('button');
+      backTrigger.className = 'flip-trigger back-trigger';
+      backTrigger.setAttribute('type', 'button');
+      backTrigger.setAttribute('aria-label', 'Click to flip');
+      backTrigger.innerHTML = '<img src="/content/dam/your-project/flip-icon.svg" alt="Flip icon" width="20" height="20">';
 
-      const backTriggerBtn = document.createElement('button');
-      backTriggerBtn.className = 'flip-trigger';
-      backTriggerBtn.setAttribute('type', 'button');
-      backTriggerBtn.setAttribute('aria-label', 'Flip card');
-      backTriggerBtn.innerHTML = `
-        <img src="https://author-p135369-e1615158.adobeaemcloud.com/ui#/aem/assetdetails.html/content/dam/your-project/flip-icon.svg" alt="Flip icon">
-      `;
+      back.append(backContent, backTrigger);
 
-      backTriggerWrapper.appendChild(backTriggerBtn);
-      back.append(backContent, backTriggerWrapper);
-
-      // Combine
+      // Append front and back to container
       flipContainer.append(front, back);
       li.append(flipContainer);
       ul.append(li);
 
-      // Flip on trigger button click
-      [frontTriggerBtn, backTriggerBtn].forEach((trigger) => {
-        trigger.addEventListener('click', (e) => {
+      // Flip on button click only
+      [frontTrigger, backTrigger].forEach((btn) => {
+        btn.addEventListener('click', (e) => {
           e.stopPropagation();
           flipContainer.classList.toggle('flipping-card-container--flipped');
         });
       });
 
-      // Keyboard accessibility
+      // Keyboard accessibility: flip on Enter or Space
       li.addEventListener('keydown', (e) => {
         if (e.key === 'Enter' || e.key === ' ') {
           e.preventDefault();
