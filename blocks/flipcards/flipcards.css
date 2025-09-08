@@ -1,0 +1,158 @@
+.flipcard-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  max-width: 960px;
+}
+
+.flipcards-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 32px;
+  padding: 42px;
+}
+
+/* Flip card base */
+.flip-card {
+  background-color: transparent;
+  width: 303px;
+  height: 320px;
+  perspective: 1000px;
+  border-radius: 24px;
+  box-sizing: border-box;
+  position: relative;
+  
+}
+
+/* Inner container for flip effect */
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 1s;
+  transform-style: preserve-3d;
+  border-radius: 24px;
+  
+}
+
+.flip-card-container {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  transform-style: preserve-3d;
+  transition: transform 0.9s;
+  box-sizing: border-box;
+}
+
+/* Flip on container class */
+.flipping-card-container--flipped {
+  transform: rotateY(180deg);
+}
+
+/* Common side styles */
+.flip-card-front,
+.flip-card-back {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  background: #e1e8a5;
+  border-radius: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start; /* Align content to left */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  color: #144633;
+  font-family: 'Roboto Flex', sans-serif;
+  padding: 24px 24px;
+  box-sizing: border-box;
+  overflow: auto;
+}
+
+/* Fixed: Flip card content block */
+.flip-card-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 1rem;
+  flex-grow: 1;
+  width: 100%;
+  
+}
+
+/* Front card */
+
+
+/* Back card */
+.flip-card-back {
+  transform: rotateY(180deg);
+}
+
+/* Icon */
+.icon {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.icon picture img {
+  width: 60px;
+  height: 101px;
+  object-fit: contain;
+}
+
+/* Text styling */
+.text {
+  text-align: left;
+  width: 100%;
+}
+
+.text strong {
+  font-size: 1.1rem;
+  font-weight: bold;
+  display: block;
+  margin-bottom: 0.5rem;
+  font-family: 'HelveticaNeueW01-75Bold', sans-serif;
+}
+
+.text p {
+  font-size: 0.9rem;
+  line-height: 1.4;
+  margin-bottom: 1rem;
+}
+
+.text li{
+    font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+  line-height: 1.4
+}
+
+.text h3 {
+  font-size: 1rem;
+  font-family: 'HelveticaNeueW01-55Roma', sans-serif;
+  font-weight: 400;
+  line-height: 1.22;
+  margin-bottom: 0.25rem;
+  color: #144633;
+}
+
+/* Trigger */
+.flip-trigger {
+  font-size: 0.875rem;
+  cursor: pointer;
+  color: #144633;
+  display: inline-flex;
+  gap: 4px;
+  margin-top: auto;
+  align-self: flex-end;
+}
+
+
